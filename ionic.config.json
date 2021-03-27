@@ -1,0 +1,7 @@
+{
+  "name": "SasbuzzViralNews",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
