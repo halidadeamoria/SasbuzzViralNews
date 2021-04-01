@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> 
+      <img src="../assets/logo.png" height="alt">
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment scrollable mod="md" [(ngModel)]="selectedMedia">
+    <ion-segment-button value="detik" (click)='detik()'>
+        <ion-label>Detik</ion-label>
+    </ion-segment-button>    
+    <ion-segment-button value="okezone" (click)='okezone()'>
+        <ion-label>Okezone</ion-label>
+    </ion-segment-button>  
+    <ion-segment-button value="republika" (click)='republika()'>
+        <ion-label>Republika</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="kompas" (click)='kompas()'>
+        <ion-label>Kompas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="liputan6" (click)='liputan6()'>
+        <ion-label>Liputan6</ion-label>
+    </ion-segment-button>    
+    <ion-segment-button value="merdeka" (click)='merdeka()'>
+        <ion-label>Merdeka</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="suara" (click)='suara()'>
+        <ion-label>Suara</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="antara" (click)='antara()'>
+        <ion-label>AntaraNews</ion-label>
+    </ion-segment-button>    
+    <ion-segment-button value="tribun" (click)='tribun()'>
+      <ion-label>TribunNews</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="cnnID" (click)='cnnID()'>
+      <ion-label>CNNIndonesia</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="tempo" (click)='tempo()'>
+      <ion-label>Tempo</ion-label>
+  </ion-segment-button>
+  </ion-segment>
+
+  <ion-card *ngFor='let item of newsData'>
+    <ion-card-header>
+      <img [src]="item.picture">
+      <h5>{{item.title}}</h5>
+      <h6>{{item.source}}</h6>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.deskripsi}}<br><br>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-icon name="logo-facebook"></ion-icon>
+              <ion-label> {{item.sharefacebook}} share</ion-label>
+            </div>
+          </ion-col>          
+          <ion-col>
+            <div>
+              <ion-icon name="logo-twitter"></ion-icon>
+              <ion-label> {{item.sharetwitter}} share</ion-label>
+            </div>  
+          </ion-col>   
+        </ion-row>
+        <ion-row>          
+          <ion-col>                 
+            <div>
+              <ion-icon name="share-social-outline"></ion-icon>
+              <ion-label> {{item.total}} share</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> 
+      <img src="../assets/logo.png" height="alt">
+     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment scrollable mod="md" [(ngModel)]="selectedKategori">
+    <ion-segment-button value="trending" (click)='trending()'>
+        <ion-label>Trending</ion-label>
+    </ion-segment-button>    
+    <ion-segment-button value="kesehatan" (click)='kesehatan()'>
+        <ion-label>Kesehatan</ion-label>
+    </ion-segment-button>  
+    <ion-segment-button value="entertainment" (click)='entertainment()'>
+        <ion-label>Entertainment</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="lifestyle" (click)='lifestyle()'>
+        <ion-label>Lifestyle</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="olahraga" (click)='olahraga()'>
+        <ion-label>Olahraga</ion-label>
+    </ion-segment-button>    
+    <ion-segment-button value="otomotif" (click)='otomotif()'>
+        <ion-label>Otomotif</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="pendidikan" (click)='pendidikan()'>
+        <ion-label>Pendidikan</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="ekonomi" (click)='ekonomi()'>
+        <ion-label>Ekonomi</ion-label>
+    </ion-segment-button>    
+    <ion-segment-button value="sains" (click)='sains()'>
+      <ion-label>Sains</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="teknologi" (click)='teknologi()'>
+      <ion-label>Teknologi</ion-label>
+  </ion-segment-button>
+  </ion-segment>
+
+  <ion-card *ngFor='let item of newsData'>
+    <ion-card-header>
+      <img [src]="item.picture">
+      <h5>{{item.title}}</h5>
+      <h6>{{item.source}}</h6>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.deskripsi}}<br><br>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-icon name="logo-facebook"></ion-icon>
+              <ion-label> {{item.sharefacebook}} share</ion-label>
+            </div>
+          </ion-col>          
+          <ion-col>
+            <div>
+              <ion-icon name="logo-twitter"></ion-icon>
+              <ion-label> {{item.sharetwitter}} share</ion-label>
+            </div>  
+          </ion-col>   
+        </ion-row>
+        <ion-row>          
+          <ion-col>                 
+            <div>
+              <ion-icon name="share-social-outline"></ion-icon>
+              <ion-label> {{item.total}} share</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
