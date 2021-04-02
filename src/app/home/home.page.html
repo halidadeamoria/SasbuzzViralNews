@@ -40,14 +40,14 @@
   </ion-segment-button>
   </ion-segment>
 
-  <ion-card *ngFor='let item of newsData'>
+  <ion-card *ngFor='let item of newsData' (click)="OpenBrowser(item.url,'_self')">
     <ion-card-header>
       <img [src]="item.picture">
       <h5>{{item.title}}</h5>
       <h6>{{item.source}}</h6>
     </ion-card-header>
     <ion-card-content>
-      {{item.deskripsi}}<br><br>
+      {{item.deskripsi}}
       <ion-grid>
         <ion-row>
           <ion-col>

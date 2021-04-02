@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { IonSlides } from '@ionic/angular';
 import { ApiService } from '../api.service';
 
@@ -11,9 +12,18 @@ export class HomePage implements OnInit {
   selectTabs = 'trending';
   public newsData:any;
 
-  constructor(public api:ApiService) {
+  constructor(public api:ApiService, private browser:InAppBrowser) {
+    const options: InAppBrowserOptions = {
+      toolbar: 'no',
+      location: 'no',
+      zoom: 'no'
+    }
+ }
+  OpenBrowser(url:string, target:string, options:string){
+    const link = url;
+    this.browser.create(link,target,options);
   }
-
+  
   ngOnInit() {
     this.api.getTrendingNews().subscribe(result=>{
       console.log(result);
